@@ -23,7 +23,10 @@ namespace Bot.Gamer.Dialogs
         public async Task StartAsync(IDialogContext context)
         {
             await context.PostAsync("-=-=- Battle Adventure v1.0 -=-=-");
-            await context.PostAsync(EmptyField + RedField + BlueField);
+            //await context.PostAsync(EmptyField + RedField + BlueField);
+            await context.PostAsync("Algumas instruções básicas:\n\n" +
+                                    "**O** = Olhar ao redor, **A** = Atacar, **S** = Sair\n\n" +
+                                    "Digite ajuda ou help para relembrar os comandos, se precisar");
             context.Wait(MessageReceivedAsync);
         }
 
@@ -31,7 +34,7 @@ namespace Bot.Gamer.Dialogs
         {
             //var activity = await result as Activity;
             PromptDialog.Text(context, CallBack, "\n\n\n\nO = Olhar ao redor, A = Atacar, S = Sair" +
-                                                 "\n\n\nPontuação [] Nível [] Action [O,A,S]: ");
+                                                 "\n\n\nPontuação [**" + _score + "**] Nível [**" + Rpg.GetLevel() + "**] Action [O,A,S]:");
         }
 
         private async Task CallBack(IDialogContext context, IAwaitable<string> value)
@@ -109,8 +112,7 @@ namespace Bot.Gamer.Dialogs
 
             if (command != "s")
             {
-                PromptDialog.Text(context, CallBack, "\n\n\n\nO = Olhar ao redor, A = Atacar, S = Sair" +
-                                                     "\n\n\nPontuação [] Nível [] Action [O,A,S]: ");
+                PromptDialog.Text(context, CallBack, "Pontuação [**" + _score + "**] Nível [**" + Rpg.GetLevel() + "**] Action [O,A,S]: ");
             }
         }
 
@@ -131,7 +133,7 @@ namespace Bot.Gamer.Dialogs
                 await context.PostAsync("Ok, pediu para **Sair** por que então?!?");
 
                 PromptDialog.Text(context, CallBack, "\n\n\n\nO = Olhar ao redor, A = Atacar, S = Sair" +
-                                                     "\n\n\nPontuação [] Nível [] Action [O,A,S]: ");
+                                                     "\n\n\nPontuação [**" + _score + "**] Nível [**" + Rpg.GetLevel() + "**] Action [O,A,S]:");
             }
         }
 

@@ -130,6 +130,7 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="LuisModel\Botinho.json" />
     <None Include="Properties\PublishProfiles\bot-gamer - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
