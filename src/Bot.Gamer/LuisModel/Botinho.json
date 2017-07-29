@@ -1,0 +1,108 @@
+{
+  "luis_schema_version": "2.1.0",
+  "versionId": "0.1",
+  "name": "Botinho",
+  "desc": "Botinho, seu amiguinho de toda hora. Sei jogar RPG ;)",
+  "culture": "pt-br",
+  "intents": [
+    {
+      "name": "ajudar"
+    },
+    {
+      "name": "consciencia"
+    },
+    {
+      "name": "jogar-rpg"
+    },
+    {
+      "name": "jogar-tic-tac-toe"
+    },
+    {
+      "name": "None"
+    }
+  ],
+  "entities": [],
+  "composites": [],
+  "closedLists": [],
+  "bing_entities": [],
+  "actions": [],
+  "model_features": [],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "qual o seu nome?",
+      "intent": "consciencia",
+      "entities": []
+    },
+    {
+      "text": "vc é um robô?",
+      "intent": "consciencia",
+      "entities": []
+    },
+    {
+      "text": "quem é você?",
+      "intent": "consciencia",
+      "entities": []
+    },
+    {
+      "text": "vc é um bot?",
+      "intent": "consciencia",
+      "entities": []
+    },
+    {
+      "text": "você é um ser humano?",
+      "intent": "consciencia",
+      "entities": []
+    },
+    {
+      "text": "você é um bot ou um ser humano?",
+      "intent": "consciencia",
+      "entities": []
+    },
+    {
+      "text": "você é um bot?",
+      "intent": "consciencia",
+      "entities": []
+    },
+    {
+      "text": "é um robô aqui?",
+      "intent": "consciencia",
+      "entities": []
+    },
+    {
+      "text": "jogar tic tac toe",
+      "intent": "jogar-tic-tac-toe",
+      "entities": []
+    },
+    {
+      "text": "tic tac toe",
+      "intent": "jogar-tic-tac-toe",
+      "entities": []
+    },
+    {
+      "text": "jogo da velha",
+      "intent": "jogar-tic-tac-toe",
+      "entities": []
+    },
+    {
+      "text": "quero jogar o jogo da velha",
+      "intent": "jogar-tic-tac-toe",
+      "entities": []
+    },
+    {
+      "text": "quero jogar role playing game",
+      "intent": "jogar-rpg",
+      "entities": []
+    },
+    {
+      "text": "jogar rpg",
+      "intent": "jogar-rpg",
+      "entities": []
+    },
+    {
+      "text": "quero jogar rpg",
+      "intent": "jogar-rpg",
+      "entities": []
+    }
+  ]
+}
