@@ -55,7 +55,7 @@ namespace Bot.Gamer.Games
                 context.SetState(context.GetExploreState());
                 _rounds = 0;
             }
-            response.Status = 0;
+            
             return response;
         }
         #endregion

@@ -31,7 +31,6 @@ namespace Bot.Gamer.Games
                 response.Response.Add("Você encontra uma jóia dourada atrás de uma árvore!");
                 response.Status = 2;
             }
-            response.Status = 0;
 
             return response;
         }

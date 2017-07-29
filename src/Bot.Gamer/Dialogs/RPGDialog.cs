@@ -70,9 +70,8 @@ namespace Bot.Gamer.Dialogs
 
                 if (points > 0)
                 {
-                    await context.PostAsync("Você ganhou " + points + "!");
-
                     _score += points;
+                    await context.PostAsync("Você ganhou " + points + "!");
                 }
             }
             else if (command == "a")
