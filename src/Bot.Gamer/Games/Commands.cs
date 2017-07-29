@@ -34,5 +34,26 @@ namespace Bot.Gamer.Games
         {
             return CommandListS.Exists(c => c == command);
         }
+
+        public string Chubas(List<string> kk)
+        {
+            string o = null;
+            foreach (var item in kk)
+                o = $" [{item}] ";
+            return o;
+        }
+
+        public override string ToString()
+        {
+
+            string value = "Segue a lista dos comandos\n\n" +
+                           $"**O** {Chubas(CommandListO)}\n\n" +
+                           $"**A** {Chubas(CommandListA)}\n\n" +
+                           $"**S** {Chubas(CommandListS)}\n\n" +
+                           $"**H** {Chubas(CommandListH)}\n\n" +
+                           "( ͡° ͜ʖ ͡°) Boa sorte...";
+
+            return value;
+        }
     }
 }

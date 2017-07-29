@@ -57,7 +57,7 @@ namespace Bot.Gamer.Dialogs
 
         private async Task DoActionAsync(IDialogContext context, string command)
         {
-            if (Commands.O(command))//command == "o")
+            if (Commands.O(command))
             {
                 var explore = Rpg.Explore();
 
@@ -74,23 +74,21 @@ namespace Bot.Gamer.Dialogs
                     await context.PostAsync("Você ganhou " + points + "!");
                 }
             }
-            else if (command == "a")
+            else if (Commands.A(command))
             {
                 var battle = Rpg.Battle();
-
+                
                 foreach (var item in battle.Response)
-                {
                     await context.PostAsync(item);
-                }
 
                 var rounds = battle.Status;
                 if (rounds > 0)
                 {
                     var points = 10 - rounds;
+
                     if (points < 0)
-                    {
                         points = 0;
-                    }
+                    
                     _score += points;
 
                     await context.PostAsync("Você ganhou " + points + "!");
@@ -109,10 +107,9 @@ namespace Bot.Gamer.Dialogs
                 await context.PostAsync("Sua maravilhosa experiência ganhou um level! Level " + Rpg.GetLevel());
             }
 
-            if (command != "s")
-            {
+            if (!Commands.S(command))
                 PromptDialog.Text(context, CallBack, "Pontuação [**" + _score + "**] Nível [**" + Rpg.GetLevel() + "**] Action [O,A,S]: ");
-            }
+
         }
 
         private async Task CallBackQuit(IDialogContext context, IAwaitable<bool> value)

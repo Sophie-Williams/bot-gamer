@@ -24,7 +24,7 @@ namespace Bot.Gamer.Games
             var ran = RandomGenerator.GetRandomNumber(5);
             if (ran == 0)
             {
-                response.Response.Add("Um monstro se aproxima! Prepare-se para a batalha!");
+                response.Response.Add("(ง'̀-'́)ง Um monstro se aproxima! Prepare-se para a batalha!");
                 _context.SetState(_context.GetBattleState());
             }
             else if (ran == 1)

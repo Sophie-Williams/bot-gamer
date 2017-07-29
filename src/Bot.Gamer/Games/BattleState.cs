@@ -47,7 +47,7 @@ namespace Bot.Gamer.Games
             }
             else
             {
-                response.Response.Add("mas ERROU!!!");
+                response.Response.Add("(ಥ﹏ಥ) ... mas ERRÔÔÔU!!!");
             }
             if (_rounds >= 9)
             {
