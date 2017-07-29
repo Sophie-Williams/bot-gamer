@@ -116,6 +116,7 @@
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="Dialogs\RPGDialog.cs" />
     <Compile Include="Games\BattleState.cs" />
+    <Compile Include="Games\Commands.cs" />
     <Compile Include="Games\ExploreState.cs" />
     <Compile Include="Games\IState.cs" />
     <Compile Include="Games\RandomGenerator.cs" />

@@ -7,11 +7,11 @@ namespace Bot.Gamer.Games
 {
     public class BattleState : IState
     {
-        private RPGController context;
+        private readonly RPGController _context;
         private int _rounds = 0;
         public BattleState(RPGController context)
         {
-            this.context = context;
+            this._context = context;
         }
 
         #region ... IState Members ...
@@ -29,18 +29,18 @@ namespace Bot.Gamer.Games
 
             response.Response.Add("Você tenta matar o monstro .. ");
             _rounds++;
-            System.Threading.Thread.Sleep(1000);
-            int maxRan = 10 - level;
+            
+            var maxRan = 10 - level;
             if (maxRan < 1)
             {
                 maxRan = 1;
             }
-            int ran = RandomGenerator.GetRandomNumber(maxRan);
+            var ran = RandomGenerator.GetRandomNumber(maxRan);
             if (ran == 0)
             {
                 response.Response.Add("ele está morto!");
-                context.SetState(context.GetExploreState());
-                int tempRounds = _rounds;
+                _context.SetState(_context.GetExploreState());
+                var tempRounds = _rounds;
                 _rounds = 0;
 
                 response.Status = tempRounds;
@@ -52,7 +52,7 @@ namespace Bot.Gamer.Games
             if (_rounds >= 9)
             {
                 response.Response.Add("Você entra em pânico e fugiu com medo.");
-                context.SetState(context.GetExploreState());
+                _context.SetState(_context.GetExploreState());
                 _rounds = 0;
             }
             

@@ -57,7 +57,7 @@ namespace Bot.Gamer.Dialogs
 
         private async Task DoActionAsync(IDialogContext context, string command)
         {
-            if (command == "o")
+            if (Commands.O(command))//command == "o")
             {
                 var explore = Rpg.Explore();
 

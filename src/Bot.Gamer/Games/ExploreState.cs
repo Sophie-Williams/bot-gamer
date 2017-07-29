@@ -8,6 +8,7 @@ namespace Bot.Gamer.Games
     public class ExploreState : IState
     {
         private readonly RPGController _context;
+
         public ExploreState(RPGController context)
         {
             this._context = context;
