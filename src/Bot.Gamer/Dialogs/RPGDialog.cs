@@ -46,6 +46,7 @@ namespace Bot.Gamer.Dialogs
                 await context.PostAsync("Mano, não é muito difícil jogar comigo...acompanha comigo:\n\n" +
                                         "* **O** - Para olhar ao redor\n\n" +
                                         "* **A** - Para atarcar, caso você veja um monstro\n\n" +
+                                        "* **H** - Caso precise de ajuda, ou queira lembrar os comandos\n\n" +
                                         "* **S** - Para pedir arrego, caso você seja um franguinho!\n\n" +
                                         "Blz?!? Simples né? Mais fácil que seu código meia boca ;)");
             }
@@ -77,7 +78,7 @@ namespace Bot.Gamer.Dialogs
             else if (Commands.A(command))
             {
                 var battle = Rpg.Battle();
-                
+
                 foreach (var item in battle.Response)
                     await context.PostAsync(item);
 
@@ -88,11 +89,16 @@ namespace Bot.Gamer.Dialogs
 
                     if (points < 0)
                         points = 0;
-                    
+
                     _score += points;
 
                     await context.PostAsync("Você ganhou " + points + "!");
                 }
+            }
+            else if (Commands.H(command))
+            {
+                //var c = new Commands();
+                await context.PostAsync(new Commands().ToString());
             }
             else
             {
