@@ -215,8 +215,7 @@ namespace Bot.Gamer.Games
 
         public override string ToString()
         {
-
-            string value = "Segue a lista dos comandos\n\n" +
+            var value = "Segue a lista dos comandos\n\n" +
                            $"**O** {Chubas(CommandListO)}\n\n" +
                            $"**A** {Chubas(CommandListA)}\n\n" +
                            $"**S** {Chubas(CommandListS)}\n\n" +
