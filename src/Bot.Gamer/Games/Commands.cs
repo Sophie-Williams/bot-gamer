@@ -5,6 +5,14 @@ using System.Web;
 
 namespace Bot.Gamer.Games
 {
+    public class Emoji
+    {
+        public static readonly string Fire = "🔥";
+        public static readonly string EmptyField = "⚪️";
+        public static readonly string RedField = "🔴";
+        public static readonly string BlueField = "🔵";
+        public static readonly string Snake = "🐍";
+    }
     public class Commands
     {
         private static readonly List<string> CommandListO = new List<string>() { "o", "observar", "olhar", "ver", "andar", "procurar" };

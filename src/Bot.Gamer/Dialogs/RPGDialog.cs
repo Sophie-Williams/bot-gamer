@@ -14,16 +14,14 @@ namespace Bot.Gamer.Dialogs
         private static int _score = 0;
         private static int _nextLevel = 10;
 
-        public const string EmptyField = "⚪️";
-        public const string RedField = "🔴";
-        public const string BlueField = "🔵";
-        //("I win! 😈")
-        //Text = "You can't play with yourself! ( ͡° ͜ʖ ͡°)"
+        //public const string EmptyField = "⚪️";
+        //public const string RedField = "🔴";
+        //public const string BlueField = "🔵 🔥 🐍";
 
         public async Task StartAsync(IDialogContext context)
         {
-            await context.PostAsync("-=-=- Battle Adventure v1.0 -=-=-");
-            //await context.PostAsync(EmptyField + RedField + BlueField);
+            await context.PostAsync($"-=-=- Battle Adventure {Emoji.Fire} v1.0 -=-=-");
+
             await context.PostAsync("Algumas instruções básicas:\n\n" +
                                     "**O** = Olhar ao redor, **A** = Atacar, **S** = Sair\n\n" +
                                     "Digite ajuda ou help para relembrar os comandos, se precisar");
@@ -97,7 +95,6 @@ namespace Bot.Gamer.Dialogs
             }
             else if (Commands.H(command))
             {
-                //var c = new Commands();
                 await context.PostAsync(new Commands().ToString());
             }
             else
@@ -114,7 +111,7 @@ namespace Bot.Gamer.Dialogs
             }
 
             if (!Commands.S(command))
-                PromptDialog.Text(context, CallBack, "Pontuação [**" + _score + "**] Nível [**" + Rpg.GetLevel() + "**] Action [O,A,S]: ");
+                PromptDialog.Text(context, CallBack, $"{Emoji.EmptyField} Pontuação [**{_score}**] Nível [**{Rpg.GetLevel()}**] Action [O,A,S]: ");
 
         }
 
@@ -125,8 +122,7 @@ namespace Bot.Gamer.Dialogs
             if (command)
             {
                 var message = context.MakeMessage();
-                var attachment = GetChubasCard();
-                message.Attachments.Add(attachment);
+                message.Attachments.Add(GetChubasCard());
                 await context.PostAsync(message);
                 context.Done<string>(null);
             }
@@ -135,7 +131,7 @@ namespace Bot.Gamer.Dialogs
                 await context.PostAsync("Ok, pediu para **Sair** por que então?!?");
 
                 PromptDialog.Text(context, CallBack, "\n\n\n\nO = Olhar ao redor, A = Atacar, S = Sair" +
-                                                     "\n\n\nPontuação [**" + _score + "**] Nível [**" + Rpg.GetLevel() + "**] Action [O,A,S]:");
+                                                     $"\n\n\n{Emoji.EmptyField} Pontuação [**{_score}**] Nível [**{Rpg.GetLevel()}**] Action [O,A,S]:");
             }
         }
 
@@ -144,9 +140,8 @@ namespace Bot.Gamer.Dialogs
             var heroCard = new HeroCard
             {
                 Title = "LOSER",
-                Subtitle = "😈 Loser Loser Loser",
-                Text = BlueField + " Seu status no jogo foi: Nível 10 Pontuação 90",
-
+                Subtitle = "😈 Loser ಠ╭╮ಠ Loser",
+                Text = Emoji.RedField + " Seu status no jogo foi: Pontuação [**" + _score + "**] Nível [**" + Rpg.GetLevel() + "**]",
                 Images = new List<CardImage> { new CardImage("http://meriatblob.blob.core.windows.net/demos/robot.png") },
                 Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Vitor Meriat", value: "http://vitormeriat.com.br") }
             };
