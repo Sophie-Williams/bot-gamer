@@ -180,6 +180,11 @@ namespace Bot.Gamer.Games
             "(ᵒ̤̑ ₀̑ ᵒ̤̑)",
             @"\_(ʘ_ʘ)_/"};
 
+        public static bool ValidateCommand(string command)
+        {
+            return O(command) || A(command) || S(command) || H(command);
+        }
+
         public static bool O(string command)
         {
             return CommandListO.Exists(c => c == command);

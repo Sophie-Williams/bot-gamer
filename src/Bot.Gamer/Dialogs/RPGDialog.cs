@@ -41,9 +41,9 @@ namespace Bot.Gamer.Dialogs
         {
             var message = await value;
 
-            if (message.ToLower() != "o" && message.ToLower() != "a" && message.ToLower() != "s")
+            if (Commands.ValidateCommand(message.ToLower()))
             {
-                await context.PostAsync("Mano, não é muito difícil jogar comigo...acompanha comigo:\n\n" +
+                await context.PostAsync("Mano, não é muito difícil jogar...acompanha comigo:\n\n" +
                                         "* **O** - Para olhar ao redor\n\n" +
                                         "* **A** - Para atarcar, caso você veja um monstro\n\n" +
                                         "* **H** - Caso precise de ajuda, ou queira lembrar os comandos\n\n" +
