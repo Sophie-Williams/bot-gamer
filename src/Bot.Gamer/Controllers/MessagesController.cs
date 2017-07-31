@@ -40,7 +40,7 @@ namespace Bot.Gamer
                     if (activity.MembersAdded.Any(o => o.Id == activity.Recipient.Id))
                     {
                         var reply = activity.CreateReply();
-                        reply.Text = "Olá, eu sou o **BotInho**.\n\n\nPor hora a única coisa que eu faço é jogar um **RPG** com você.\n\n\nMas lembre-se, eu sou o master. É só você seguir os meus comandos que vamos ter um bom jogo.\n\n\n**PS:** Eu estou na v0.1, então pega leve tá?!?";
+                        reply.Text = "Olá, eu sou o **BotInho**.\n\n\nPor hora a única coisa que eu faço é jogar um **RPG** com você.\n\n\nMas lembre-se, eu sou o master. É só você seguir os meus comandos que vamos ter um bom jogo.\n\n\n**PS:** Eu estou na v0.1.1, então pega leve tá?!?";
 
                         await connector.Conversations.ReplyToActivityAsync(reply);
                     }

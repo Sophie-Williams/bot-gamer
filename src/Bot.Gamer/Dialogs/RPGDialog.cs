@@ -10,21 +10,17 @@ namespace Bot.Gamer.Dialogs
     [Serializable]
     public class RPGDialog : IDialog<object>
     {
-        private static readonly RPGController Rpg = new RPGController();
-        private static int _score = 0;
-        private static int _nextLevel = 10;
-
-        //public const string EmptyField = "⚪️";
-        //public const string RedField = "🔴";
-        //public const string BlueField = "🔵 🔥 🐍";
-
+        private readonly RPGController Rpg = new RPGController();
+        private int _score = 0;
+        private int _nextLevel = 10;
+        
         public async Task StartAsync(IDialogContext context)
         {
             await context.PostAsync($"-=-=- Battle Adventure {Emoji.Fire} v1.0 -=-=-");
 
-            await context.PostAsync("Algumas instruções básicas:\n\n" +
-                                    "**O** = Olhar ao redor, **A** = Atacar, **S** = Sair\n\n" +
-                                    "Digite ajuda ou help para relembrar os comandos, se precisar");
+            //await context.PostAsync("Algumas instruções básicas:\n\n" +
+            //                        "**O** = Olhar ao redor, **A** = Atacar, **S** = Sair\n\n" +
+            //                        "Digite ajuda ou help para relembrar os comandos, se precisar");
             context.Wait(MessageReceivedAsync);
         }
 
@@ -39,7 +35,7 @@ namespace Bot.Gamer.Dialogs
         {
             var message = await value;
 
-            if (Commands.ValidateCommand(message.ToLower()))
+            if (!Commands.ValidateCommand(message.ToLower()))
             {
                 await context.PostAsync("Mano, não é muito difícil jogar...acompanha comigo:\n\n" +
                                         "* **O** - Para olhar ao redor\n\n" +
@@ -135,7 +131,7 @@ namespace Bot.Gamer.Dialogs
             }
         }
 
-        private static Attachment GetChubasCard()
+        private Attachment GetChubasCard()
         {
             var heroCard = new HeroCard
             {
