@@ -13,14 +13,11 @@ namespace Bot.Gamer.Dialogs
         private readonly RPGController Rpg = new RPGController();
         private int _score = 0;
         private int _nextLevel = 10;
-        
+
         public async Task StartAsync(IDialogContext context)
         {
             await context.PostAsync($"-=-=- Battle Adventure {Emoji.Fire} v1.0 -=-=-");
 
-            //await context.PostAsync("Algumas instruções básicas:\n\n" +
-            //                        "**O** = Olhar ao redor, **A** = Atacar, **S** = Sair\n\n" +
-            //                        "Digite ajuda ou help para relembrar os comandos, se precisar");
             context.Wait(MessageReceivedAsync);
         }
 
@@ -136,7 +133,7 @@ namespace Bot.Gamer.Dialogs
             var heroCard = new HeroCard
             {
                 Title = "LOSER",
-                Subtitle = "😈 Loser ಠ╭╮ಠ Loser",
+                Subtitle = $"{Emoji.A} Loser {Emoji.B} Loser",
                 Text = Emoji.RedField + " Seu status no jogo foi: Pontuação [**" + _score + "**] Nível [**" + Rpg.GetLevel() + "**]",
                 Images = new List<CardImage> { new CardImage("http://meriatblob.blob.core.windows.net/demos/robot.png") },
                 Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Vitor Meriat", value: "http://vitormeriat.com.br") }
