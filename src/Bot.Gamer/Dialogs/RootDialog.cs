@@ -69,7 +69,8 @@ namespace Bot.Gamer.Dialogs
         [LuisIntent("consciencia")]
         public async Task Consciencia(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync("Não se esqueça, eu sou um **BOT**, mas você pode me chamar de **Botinho**.\n\nNão entendo tudo mas posso te ajudar a jogar.\n\nEm que posso te ajudar?");
+            var response = Dialogs.Chola(Dialogs.DialogsTypes.Consciencia);
+            await context.PostAsync(response);
             context.Done("");
         }
 
