@@ -114,10 +114,9 @@ namespace Bot.Gamer.Dialogs
 
         private async Task ResumeAfterSupportDialog(IDialogContext context, IAwaitable<object> result)
         {
-            var ticketNumber = await result;
+            await context.PostAsync("Ok humano... o que você quer fazer agora?");
 
-            await context.PostAsync($"Thanks for contacting our support team. Your ticket number is {ticketNumber}.");
-            context.Wait(this.MessageReceivedAsync);
+            context.Done<string>(null);
         }
     }
 }

@@ -1,13 +1,180 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Gamer Bot</title>
     <meta charset="utf-8" />
+    <style>
+        .headline {
+            padding: 120px 0;
+        }
+
+            .headline h1 {
+                font-size: 130px;
+                background: #fff;
+                background: rgba(255,255,255,0.9);
+            }
+
+            .headline h2 {
+                font-size: 77px;
+                background: #fff;
+                background: rgba(255,255,255,0.9);
+            }
+
+        .featurette-divider {
+            margin: 80px 0;
+        }
+
+        .featurette {
+            overflow: hidden;
+        }
+
+        .featurette-image.pull-left {
+            margin-right: 40px;
+        }
+
+        .featurette-image.pull-right {
+            margin-left: 40px;
+        }
+
+        .featurette-heading {
+            font-size: 50px;
+        }
+
+        @media(max-width:1200px) {
+            .headline h1 {
+                font-size: 140px;
+            }
+
+            .headline h2 {
+                font-size: 63px;
+            }
+
+            .featurette-divider {
+                margin: 50px 0;
+            }
+
+            .featurette-image.pull-left {
+                margin-right: 20px;
+            }
+
+            .featurette-image.pull-right {
+                margin-left: 20px;
+            }
+
+            .featurette-heading {
+                font-size: 35px;
+            }
+        }
+
+        @media(max-width:991px) {
+            .headline h1 {
+                font-size: 105px;
+            }
+
+            .headline h2 {
+                font-size: 50px;
+            }
+
+            .featurette-divider {
+                margin: 40px 0;
+            }
+
+            .featurette-image {
+                max-width: 50%;
+            }
+
+                .featurette-image.pull-left {
+                    margin-right: 10px;
+                }
+
+                .featurette-image.pull-right {
+                    margin-left: 10px;
+                }
+
+            .featurette-heading {
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .container {
+                margin: 0 15px;
+            }
+
+            .featurette-divider {
+                margin: 40px 0;
+            }
+
+            .featurette-heading {
+                font-size: 25px;
+            }
+        }
+
+        @media(max-width:668px) {
+            .headline h1 {
+                font-size: 70px;
+            }
+
+            .headline h2 {
+                font-size: 32px;
+            }
+
+            .featurette-divider {
+                margin: 30px 0;
+            }
+        }
+
+        @media(max-width:640px) {
+            .headline {
+                padding: 75px 0 25px 0;
+            }
+
+                .headline h1 {
+                    font-size: 60px;
+                }
+
+                .headline h2 {
+                    font-size: 30px;
+                }
+        }
+
+        @media(max-width:375px) {
+            .featurette-divider {
+                margin: 10px 0;
+            }
+
+            .featurette-image {
+                max-width: 100%;
+            }
+
+                .featurette-image.pull-left {
+                    margin-right: 0;
+                    margin-bottom: 10px;
+                }
+
+                .featurette-image.pull-right {
+                    margin-bottom: 10px;
+                    margin-left: 0;
+                }
+        }
+    </style>
+
+    <link href="web/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="font-family:'Segoe UI'">
-    <h1>Bot.Gamer</h1>
-    <p>Describe your bot here and your terms of use etc.</p>
-<p>Visit <a href="https://www.botframework.com/">Bot Framework</a> to register your bot. When you register it, remember to set your bot's endpoint to <pre>https://<i>your_bots_hostname</i>/api/messages</pre></p>
-<!--<iframe src='https://webchat.botframework.com/embed/bot-gamer?s=TsrI59xNoYs.cwA.fC8.m3AbxfCBIoSEHMD3dOeLyxz-K7_RXn_i8tVfPOE8lFQ'></iframe>-->
+<body>
+    <div class="container">
+        <div class="featurette">
+            <img class="featurette-image img-responsive pull-right" src="web/3.png">
+            <h2 class="featurette-heading">
+                Gamer Bot
+                <span class="text-muted">O destruidor de humanos!</span>
+            </h2>
+            <p class="lead">Hey humano... quer tentar me vencer? É só escolher o desafio que que estou pronto para te derrotar.</p>
+        </div>
+        <div>
+            <iframe style="width: 100%; height: 400px; margin-top: 50px;" src='https://webchat.botframework.com/embed/bot-gamer?s=TsrI59xNoYs.cwA.fC8.m3AbxfCBIoSEHMD3dOeLyxz-K7_RXn_i8tVfPOE8lFQ'></iframe>
+        </div>
+    </div>
+
 </body>
 </html>
