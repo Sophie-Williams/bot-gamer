@@ -5,6 +5,7 @@ using System.Web;
 
 namespace Bot.Gamer.Games
 {
+    [Serializable]
     public class Emoji
     {
         public static readonly string Fire = "🔥";
@@ -17,6 +18,8 @@ namespace Bot.Gamer.Games
         public static readonly string C = "";
         public static readonly string D = "";
     }
+
+    [Serializable]
     public class Commands
     {
         private static readonly List<string> CommandListO = new List<string>() { "o", "observar", "olhar", "ver", "andar", "procurar" };
@@ -219,10 +222,7 @@ namespace Bot.Gamer.Games
 
         public string Chubas(List<string> kk)
         {
-            string o = null;
-            foreach (var item in kk)
-                o = $" [{item}] ";
-            return o;
+            return kk.Aggregate<string, string>(null, (current, item) => current + $" [{item}] ");
         }
 
         public override string ToString()

@@ -52,27 +52,22 @@ namespace Bot.Gamer.Dialogs
             if (Commands.O(command))
             {
                 var explore = Rpg.Explore();
-
-                foreach (var item in explore.Response)
-                {
-                    await context.PostAsync(item);
-                }
-
+                
                 var points = explore.Status;
 
                 if (points > 0)
                 {
                     _score += points;
-                    await context.PostAsync("Você ganhou " + points + "!");
+                    explore.Response = explore.Response+"\n\nVocê ganhou " + points + "!";
+                    //await context.PostAsync("Você ganhou " + points + "!");
                 }
+
+                await context.PostAsync(explore.Response);
             }
             else if (Commands.A(command))
             {
                 var battle = Rpg.Battle();
-
-                foreach (var item in battle.Response)
-                    await context.PostAsync(item);
-
+                
                 var rounds = battle.Status;
                 if (rounds > 0)
                 {
@@ -83,8 +78,11 @@ namespace Bot.Gamer.Dialogs
 
                     _score += points;
 
-                    await context.PostAsync("Você ganhou " + points + "!");
+                    battle.Response = battle.Response + "\n\nVocê ganhou " + points + "!";
+                    //await context.PostAsync("Você ganhou " + points + "!");
                 }
+
+                await context.PostAsync(battle.Response);
             }
             else if (Commands.H(command))
             {

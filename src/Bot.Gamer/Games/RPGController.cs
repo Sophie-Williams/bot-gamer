@@ -6,6 +6,7 @@ using Microsoft.Bot.Connector;
 
 namespace Bot.Gamer.Games
 {
+    [Serializable]
     public class RPGController
     {
         private IState exploreState;

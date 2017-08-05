@@ -5,6 +5,7 @@ using System.Web;
 
 namespace Bot.Gamer.Games
 {
+    [Serializable]
     public class BattleState : IState
     {
         private readonly RPGController _context;
@@ -18,7 +19,7 @@ namespace Bot.Gamer.Games
         public RPGResponse Explore()
         {
             var response = new RPGResponse();
-            response.Response.Add("Você adoraria, mas veja, há esse grande e feio monstro na sua frente!");
+            response.Response = response.Response + "\n\nVocê adoraria, mas veja, há esse grande e feio monstro na sua frente!";
             response.Status = 0;
             return response;
         }
@@ -27,9 +28,9 @@ namespace Bot.Gamer.Games
         {
             var response = new RPGResponse();
 
-            response.Response.Add("Você tenta matar o monstro .. ");
+            response.Response = response.Response + "\n\nVocê tenta matar o monstro .. ";
             _rounds++;
-            
+
             var maxRan = 10 - level;
             if (maxRan < 1)
             {
@@ -38,7 +39,7 @@ namespace Bot.Gamer.Games
             var ran = RandomGenerator.GetRandomNumber(maxRan);
             if (ran == 0)
             {
-                response.Response.Add("ele está morto!");
+                response.Response = response.Response + "\n\nele está morto!";
                 _context.SetState(_context.GetExploreState());
                 var tempRounds = _rounds;
                 _rounds = 0;
@@ -47,15 +48,15 @@ namespace Bot.Gamer.Games
             }
             else
             {
-                response.Response.Add("(ಥ﹏ಥ) ... mas ERRÔÔÔU!!!");
+                response.Response = response.Response + "\n\n(ಥ﹏ಥ) ... mas ERRÔÔÔU!!!";
             }
             if (_rounds >= 9)
             {
-                response.Response.Add("Você entra em pânico e fugiu com medo.");
+                response.Response = response.Response + "\n\nVocê entra em pânico e fugiu com medo.";
                 _context.SetState(_context.GetExploreState());
                 _rounds = 0;
             }
-            
+
             return response;
         }
         #endregion
