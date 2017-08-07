@@ -10,7 +10,7 @@ namespace Bot.Gamer.Dialogs
     [Serializable]
     public class RPGDialog : IDialog<object>
     {
-        private readonly RPGController Rpg = new RPGController();
+        private readonly RPGController _rpg = new RPGController();
         private int _score = 0;
         private int _nextLevel = 10;
 
@@ -23,9 +23,14 @@ namespace Bot.Gamer.Dialogs
 
         private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<object> result)
         {
-            //var activity = await result as Activity;
-            PromptDialog.Text(context, CallBack, "\n\n\n\nO = Olhar ao redor, A = Atacar, S = Sair" +
-                                                 "\n\n\nPontuação [**" + _score + "**] Nível [**" + Rpg.GetLevel() + "**] Action [O,A,S]:");
+            await context.PostAsync("Antes de começar, siga as instruções:\n\n" +
+                                    "* **O** - Para olhar ao redor\n\n" +
+                                    "* **A** - Para atarcar, caso você veja um monstro\n\n" +
+                                    "* **H** - Caso precise de ajuda, ou queira lembrar os comandos\n\n" +
+                                    "* **S** - Para pedir sair ou pedir arrego\n\n");
+
+            PromptDialog.Text(context, CallBack, "Hora de iniciar... " +
+                                                 "\n\n\nPontuação [**" + _score + "**] Nível [**" + _rpg.GetLevel() + "**]\n\n\nO que você quer fazer agora? **Action [O,A,H,S]:**");
         }
 
         private async Task CallBack(IDialogContext context, IAwaitable<string> value)
@@ -51,7 +56,7 @@ namespace Bot.Gamer.Dialogs
         {
             if (Commands.O(command))
             {
-                var explore = Rpg.Explore();
+                var explore = _rpg.Explore();
                 
                 var points = explore.Status;
 
@@ -66,7 +71,7 @@ namespace Bot.Gamer.Dialogs
             }
             else if (Commands.A(command))
             {
-                var battle = Rpg.Battle();
+                var battle = _rpg.Battle();
                 
                 var rounds = battle.Status;
                 if (rounds > 0)
@@ -95,14 +100,14 @@ namespace Bot.Gamer.Dialogs
 
             if (_score >= _nextLevel)
             {
-                Rpg.SetLevel(Rpg.GetLevel() + 1);
-                _nextLevel = Rpg.GetLevel() * 10;
+                _rpg.SetLevel(_rpg.GetLevel() + 1);
+                _nextLevel = _rpg.GetLevel() * 10;
 
-                await context.PostAsync("Sua maravilhosa experiência ganhou um level! Level " + Rpg.GetLevel());
+                await context.PostAsync("Sua maravilhosa experiência ganhou um level! Level " + _rpg.GetLevel());
             }
 
             if (!Commands.S(command))
-                PromptDialog.Text(context, CallBack, $"{Emoji.EmptyField} Pontuação [**{_score}**] Nível [**{Rpg.GetLevel()}**] Action [O,A,S]: ");
+                PromptDialog.Text(context, CallBack, $"{Emoji.EmptyField} Pontuação [**{_score}**] Nível [**{_rpg.GetLevel()}**] Action [O,A,S]: ");
 
         }
 
@@ -122,7 +127,7 @@ namespace Bot.Gamer.Dialogs
                 await context.PostAsync("Ok, pediu para **Sair** por que então?!?");
 
                 PromptDialog.Text(context, CallBack, "\n\n\n\nO = Olhar ao redor, A = Atacar, S = Sair" +
-                                                     $"\n\n\n{Emoji.EmptyField} Pontuação [**{_score}**] Nível [**{Rpg.GetLevel()}**] Action [O,A,S]:");
+                                                     $"\n\n\n{Emoji.EmptyField} Pontuação [**{_score}**] Nível [**{_rpg.GetLevel()}**] Action [O,A,S]:");
             }
         }
 
@@ -132,7 +137,7 @@ namespace Bot.Gamer.Dialogs
             {
                 Title = "LOSER",
                 Subtitle = $"{Emoji.A} Loser {Emoji.B} Loser",
-                Text = Emoji.RedField + " Seu status no jogo foi: Pontuação [**" + _score + "**] Nível [**" + Rpg.GetLevel() + "**]",
+                Text = Emoji.RedField + " Seu status no jogo foi: Pontuação [**" + _score + "**] Nível [**" + _rpg.GetLevel() + "**]",
                 Images = new List<CardImage> { new CardImage("http://meriatblob.blob.core.windows.net/demos/robot.png") },
                 Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Vitor Meriat", value: "http://vitormeriat.com.br") }
             };
