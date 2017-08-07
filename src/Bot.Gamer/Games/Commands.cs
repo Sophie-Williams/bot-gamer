@@ -220,21 +220,19 @@ namespace Bot.Gamer.Games
             return CommandListS.Exists(c => c == command);
         }
 
-        public string Chubas(List<string> kk)
+        private string ListWords(IEnumerable<string> word)
         {
-            return kk.Aggregate<string, string>(null, (current, item) => current + $" [{item}] ");
+            return word.Aggregate<string, string>(null, (current, item) => current + $" [{item}] ");
         }
 
         public override string ToString()
         {
-            var value = "Segue a lista dos comandos\n\n" +
-                           $"**O** {Chubas(CommandListO)}\n\n" +
-                           $"**A** {Chubas(CommandListA)}\n\n" +
-                           $"**S** {Chubas(CommandListS)}\n\n" +
-                           $"**H** {Chubas(CommandListH)}\n\n" +
-                           "( ͡° ͜ʖ ͡°) Boa sorte...";
-
-            return value;
+            return "Segue a lista dos comandos\n\n" +
+                    $"**O** {ListWords(CommandListO)}\n\n" +
+                    $"**A** {ListWords(CommandListA)}\n\n" +
+                    $"**S** {ListWords(CommandListS)}\n\n" +
+                    $"**H** {ListWords(CommandListH)}\n\n" +
+                    "( ͡° ͜ʖ ͡°) Boa sorte...";
         }
     }
 }

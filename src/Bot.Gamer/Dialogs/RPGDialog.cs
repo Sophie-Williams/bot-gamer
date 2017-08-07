@@ -29,8 +29,9 @@ namespace Bot.Gamer.Dialogs
                                     "* **H** - Caso precise de ajuda, ou queira lembrar os comandos\n\n" +
                                     "* **S** - Para pedir sair ou pedir arrego\n\n");
 
-            PromptDialog.Text(context, CallBack, "Hora de iniciar... " +
-                                                 "\n\n\nPontuação [**" + _score + "**] Nível [**" + _rpg.GetLevel() + "**]\n\n\nO que você quer fazer agora? **Action [O,A,H,S]:**");
+            PromptDialog.Text(context, CallBack, "Hora de iniciar..." +
+                                                 "\n\n\nPontuação [**" + _score + "**] Nível [**" + _rpg.GetLevel() + "**]\n\n\n" +
+                                                 "O que você quer fazer agora? **Action [O,A,H,S]:**");
         }
 
         private async Task CallBack(IDialogContext context, IAwaitable<string> value)
@@ -64,7 +65,6 @@ namespace Bot.Gamer.Dialogs
                 {
                     _score += points;
                     explore.Response = explore.Response+"\n\nVocê ganhou " + points + "!";
-                    //await context.PostAsync("Você ganhou " + points + "!");
                 }
 
                 await context.PostAsync(explore.Response);
@@ -84,7 +84,6 @@ namespace Bot.Gamer.Dialogs
                     _score += points;
 
                     battle.Response = battle.Response + "\n\nVocê ganhou " + points + "!";
-                    //await context.PostAsync("Você ganhou " + points + "!");
                 }
 
                 await context.PostAsync(battle.Response);
