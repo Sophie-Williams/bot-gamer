@@ -102,7 +102,27 @@ namespace Bot.Gamer.Dialogs
             "**Um mamão foi violentamente atirado contra a boca de um sujeito. Qual é o nome do filme?** O mamão que balança o beiço",
             "**O Lula encontra o Zé Dirceu com a mulher dele na cama. Qual é o nome do filme?** O que é isso, companheiro?**",
             "**Um tênis afunda no meio do mar. Qual é o nome do filme?** Titanike",
-            "**Um cara comeu um quilo de alho e depois escovou os dentes. Qual é o nome do filme?** Mudança de hálito"
+            "**Um cara comeu um quilo de alho e depois escovou os dentes. Qual é o nome do filme?** Mudança de hálito",
+            "**Como o elétron atende o telefone?** Próton?",
+            "**O que o próton disse para o elétron?** Hoje você está muito negativo",
+            "**O que é uma molécula?** É uma menina muito sapécula",
+            "**Qual é o doce preferido do átomo?** Pé-de-moléculas",
+            "**O que um cromossomo disse para o outro?** Cromossomos felizes !",
+            "**O que o espermatozóide falou para o óvulo?** Deixa eu morar com você porque a minha casa é um saco",
+            "**O que a célula disse quando foi ao barbeiro?** Mitose",
+            "**Como as enzimas se reproduzem?** Fica uma enzima da outra",
+            "**Por que a célula foi no psiquiatra?** Porque ela tinha complexo de Golgi",
+            "**O que são dois pontos pretos no microscópio?** Uma blacktéria e um pretozoário",
+            "**O que o polvo disse para a lula?** Ah, eu sou molusco !",
+            "**Qual é a parte do corpo da mulher que cheira bacalhau?** O nariz",
+            "**O que a mulher tem no meio das pernas?** O joelho",
+            "**O que é um ponto marrom no pulmão?** Um brownquite",
+            "**O que é um pontinho vermelho no meio da porta?** Um olho mágico com conjuntivite",
+            "**O que canibal vegetariano come?** A planta do pé e a batata da perna",
+            "**Por que as estrelas não fazem miau?** Porque Astronomia",
+            "**Por que a vaca foi para o espaço?** Para se encontrar com o vácuo",
+            "**Tinha dois caras, Geo e Trigo. Geo tinha vários filhos e o Trigo não tinha nenhum. Por quê?** Porque Geometria e Trigonometria",
+            "**Na frase 'Proibido estacionar', qual é o sujeito da oração?** Sujeito a guincho"
         };
 
         public static string RandomChoose(DialogsTypes types)

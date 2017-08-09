@@ -116,7 +116,7 @@ namespace Bot.Gamer.Dialogs
         [LuisIntent("jogar-rpg")]
         public async Task JogarRPG(IDialogContext context, LuisResult result)
         {
-            await context.Forward(new RPGDialog(), this.ResumeAfterSupportDialog, null, CancellationToken.None);
+            await context.Forward(new RPGDialog(), this.ResumeAfterJogarRPG, null, CancellationToken.None);
         }
 
         /// <summary>
@@ -130,8 +130,8 @@ namespace Bot.Gamer.Dialogs
             context.Done<string>(null);
         }
         #endregion
-
-        private async Task ResumeAfterSupportDialog(IDialogContext context, IAwaitable<object> result)
+        
+        private async Task ResumeAfterJogarRPG(IDialogContext context, IAwaitable<object> result)
         {
             await context.PostAsync("Ok humano... o que você quer fazer agora?");
 
