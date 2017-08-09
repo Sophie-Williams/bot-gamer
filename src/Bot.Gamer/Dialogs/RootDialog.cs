@@ -59,8 +59,9 @@ namespace Bot.Gamer.Dialogs
         [LuisIntent("ajudar")]
         public async Task Help(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync("Você pode perguntar coisas tipo *''xxx''* ou *''xxx''*.\n\n\nLembre-se, sou um **BOT** e meu diálgo é limitado.");
-            context.Done("");
+            var response = Dialogs.RandomChoose(Dialogs.DialogsTypes.Ajuda);
+            await context.PostAsync(response);
+            context.Done<string>(null);
         }
 
         /// <summary>
@@ -69,7 +70,7 @@ namespace Bot.Gamer.Dialogs
         [LuisIntent("consciencia")]
         public async Task Consciencia(IDialogContext context, LuisResult result)
         {
-            var response = Dialogs.Chola(Dialogs.DialogsTypes.Consciencia);
+            var response = Dialogs.RandomChoose(Dialogs.DialogsTypes.Consciencia);
             await context.PostAsync(response);
             context.Done("");
         }
@@ -110,6 +111,14 @@ namespace Bot.Gamer.Dialogs
         public async Task JogarRPG(IDialogContext context, LuisResult result)
         {
             await context.Forward(new RPGDialog(), this.ResumeAfterSupportDialog, null, CancellationToken.None);
+        }
+
+        [LuisIntent("contar-piada")]
+        public async Task ContarPiada(IDialogContext context, LuisResult result)
+        {
+            var response = Dialogs.RandomChoose(Dialogs.DialogsTypes.Piada);
+            await context.PostAsync(response);
+            context.Done<string>(null);
         }
         #endregion
 

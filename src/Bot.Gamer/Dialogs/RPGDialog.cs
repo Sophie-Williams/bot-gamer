@@ -55,7 +55,7 @@ namespace Bot.Gamer.Dialogs
 
         private async Task DoActionAsync(IDialogContext context, string command)
         {
-            if (Commands.O(command))
+            if (Commands.O(command)) // OBSERVAR
             {
                 var explore = _rpg.Explore();
                 
@@ -69,7 +69,7 @@ namespace Bot.Gamer.Dialogs
 
                 await context.PostAsync(explore.Response);
             }
-            else if (Commands.A(command))
+            else if (Commands.A(command)) // ATACAR
             {
                 var battle = _rpg.Battle();
                 
@@ -88,7 +88,7 @@ namespace Bot.Gamer.Dialogs
 
                 await context.PostAsync(battle.Response);
             }
-            else if (Commands.H(command))
+            else if (Commands.H(command)) // AJUDA
             {
                 await context.PostAsync(new Commands().ToString());
             }
@@ -109,7 +109,7 @@ namespace Bot.Gamer.Dialogs
                 PromptDialog.Text(context, CallBack, $"{Emoji.EmptyField} Pontuação [**{_score}**] Nível [**{_rpg.GetLevel()}**] Action [O,A,S]: ");
 
         }
-
+        
         private async Task CallBackQuit(IDialogContext context, IAwaitable<bool> value)
         {
             var command = await value;
@@ -125,8 +125,7 @@ namespace Bot.Gamer.Dialogs
             {
                 await context.PostAsync("Ok, pediu para **Sair** por que então?!?");
 
-                PromptDialog.Text(context, CallBack, "\n\n\n\nO = Olhar ao redor, A = Atacar, S = Sair" +
-                                                     $"\n\n\n{Emoji.EmptyField} Pontuação [**{_score}**] Nível [**{_rpg.GetLevel()}**] Action [O,A,S]:");
+                PromptDialog.Text(context, CallBack, "O que você quer fazer agora? **Action [O,A,H,S]:**");
             }
         }
 

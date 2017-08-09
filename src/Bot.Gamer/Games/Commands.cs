@@ -17,18 +17,6 @@ namespace Bot.Gamer.Games
         public static readonly string B = "ಠ╭╮ಠ";
         public static readonly string C = "";
         public static readonly string D = "";
-    }
-
-    [Serializable]
-    public class Commands
-    {
-        private static readonly List<string> CommandListO = new List<string>() { "o", "observar", "olhar", "ver", "andar", "procurar" };
-
-        private static readonly List<string> CommandListA = new List<string>() { "a", "atacar", "lutar", "brigar", "matar", "destruir" };
-
-        private static readonly List<string> CommandListH = new List<string>() { "h", "help", "ajuda", "arrego" };
-
-        private static readonly List<string> CommandListS = new List<string>() { "s", "sair", "abandonar", "desistir" };
 
         private static readonly List<string> CoolFaces = new List<string>(){
             "( .-. )",
@@ -194,6 +182,18 @@ namespace Bot.Gamer.Games
             "•̀.̫•́✧",
             "(ᵒ̤̑ ₀̑ ᵒ̤̑)",
             @"\_(ʘ_ʘ)_/"};
+    }
+
+    [Serializable]
+    public class Commands
+    {
+        private static readonly List<string> CommandListO = new List<string>() { "o", "observar", "olhar", "ver", "andar", "procurar" };
+
+        private static readonly List<string> CommandListA = new List<string>() { "a", "atacar", "lutar", "brigar", "matar", "destruir" };
+
+        private static readonly List<string> CommandListH = new List<string>() { "h", "help", "ajuda", "arrego" };
+
+        private static readonly List<string> CommandListS = new List<string>() { "s", "sair", "abandonar", "desistir" };
 
         public static bool ValidateCommand(string command)
         {
