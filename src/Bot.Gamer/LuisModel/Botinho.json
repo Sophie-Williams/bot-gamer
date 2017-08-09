@@ -12,6 +12,9 @@
       "name": "consciencia"
     },
     {
+      "name": "contar-piada"
+    },
+    {
       "name": "jogar-rpg"
     },
     {
@@ -19,6 +22,12 @@
     },
     {
       "name": "None"
+    },
+    {
+      "name": "ofenca"
+    },
+    {
+      "name": "saudar"
     }
   ],
   "entities": [],
@@ -30,8 +39,73 @@
   "regex_features": [],
   "utterances": [
     {
+      "text": "bom dia",
+      "intent": "saudar",
+      "entities": []
+    },
+    {
+      "text": "boa tarde",
+      "intent": "saudar",
+      "entities": []
+    },
+    {
+      "text": "oi",
+      "intent": "saudar",
+      "entities": []
+    },
+    {
+      "text": "olá",
+      "intent": "saudar",
+      "entities": []
+    },
+    {
+      "text": "boa noite",
+      "intent": "saudar",
+      "entities": []
+    },
+    {
+      "text": "tudo bem",
+      "intent": "saudar",
+      "entities": []
+    },
+    {
+      "text": "vai se fuder",
+      "intent": "ofenca",
+      "entities": []
+    },
+    {
       "text": "qual o seu nome?",
       "intent": "consciencia",
+      "entities": []
+    },
+    {
+      "text": "foda-se",
+      "intent": "ofenca",
+      "entities": []
+    },
+    {
+      "text": "seu bosta",
+      "intent": "ofenca",
+      "entities": []
+    },
+    {
+      "text": "mais uma",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "não entendi",
+      "intent": "ajudar",
+      "entities": []
+    },
+    {
+      "text": "me faça rir",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "piada",
+      "intent": "contar-piada",
       "entities": []
     },
     {
@@ -40,13 +114,78 @@
       "entities": []
     },
     {
+      "text": "outra",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "me conte uma piada",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
       "text": "quem é você?",
       "intent": "consciencia",
       "entities": []
     },
     {
+      "text": "seu lixo",
+      "intent": "ofenca",
+      "entities": []
+    },
+    {
+      "text": "quero ouvir uma piada",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "nada",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "quero ajuda",
+      "intent": "ajudar",
+      "entities": []
+    },
+    {
+      "text": "me conte algo engraçado",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
       "text": "vc é um bot?",
       "intent": "consciencia",
+      "entities": []
+    },
+    {
+      "text": "seu merda",
+      "intent": "ofenca",
+      "entities": []
+    },
+    {
+      "text": "que merda",
+      "intent": "ofenca",
+      "entities": []
+    },
+    {
+      "text": "que porra",
+      "intent": "ofenca",
+      "entities": []
+    },
+    {
+      "text": "puta que pariu",
+      "intent": "ofenca",
+      "entities": []
+    },
+    {
+      "text": "como assim?",
+      "intent": "ajudar",
+      "entities": []
+    },
+    {
+      "text": "outra piada",
+      "intent": "contar-piada",
       "entities": []
     },
     {
@@ -102,6 +241,126 @@
     {
       "text": "quero jogar rpg",
       "intent": "jogar-rpg",
+      "entities": []
+    },
+    {
+      "text": "nda",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "você não presta",
+      "intent": "ofenca",
+      "entities": []
+    },
+    {
+      "text": "você é uma merda",
+      "intent": "ofenca",
+      "entities": []
+    },
+    {
+      "text": "puta q pariu",
+      "intent": "ofenca",
+      "entities": []
+    },
+    {
+      "text": "que porcaria",
+      "intent": "ofenca",
+      "entities": []
+    },
+    {
+      "text": "você sabe se divertir",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "você é carrancudo",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "você é muto sério",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "que tal quebrar o gelo?",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "conte algo para discontrair",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "me divirta",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "você é engraçado?",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "você é divertido?",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "você pode me falar algo engraçado",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "você pode me contar uma piada?",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "quero me divertir",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "quero rir",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "quero ler uma piada",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "me fale uma piada",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "mais piada",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "conta outra",
+      "intent": "contar-piada",
+      "entities": []
+    },
+    {
+      "text": "quero comida",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "quero feijão",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "quero arroz",
+      "intent": "None",
       "entities": []
     }
   ]
