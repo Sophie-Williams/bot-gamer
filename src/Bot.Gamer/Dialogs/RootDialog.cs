@@ -101,18 +101,27 @@ namespace Bot.Gamer.Dialogs
             context.Done("");
         }
 
+        /// <summary>
+        /// Quando o usuário quiser jogar o jogo da velha
+        /// </summary>
         [LuisIntent("jogar-tic-tac-toe")]
         public async Task JogarTicTacToe(IDialogContext context, LuisResult result)
         {
             await context.PostAsync("( ͡° ͜ʖ ͡°) Ops ... ainda não aprendi a jogar o **jogo da velha**.\n\nFaz o seguinte, volta depois ou joga um **RPG** comigo.");
         }
 
+        /// <summary>
+        /// Quando o usuário quiser jogar RPG
+        /// </summary>
         [LuisIntent("jogar-rpg")]
         public async Task JogarRPG(IDialogContext context, LuisResult result)
         {
             await context.Forward(new RPGDialog(), this.ResumeAfterSupportDialog, null, CancellationToken.None);
         }
 
+        /// <summary>
+        /// Quando o usuário quiser ouvir uma piada
+        /// </summary>
         [LuisIntent("contar-piada")]
         public async Task ContarPiada(IDialogContext context, LuisResult result)
         {
