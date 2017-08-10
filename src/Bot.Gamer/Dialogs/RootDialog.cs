@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Bot.Gamer.Games;
+using BotBuilder.Instrumentation.Dialogs;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Connector;
@@ -11,9 +12,10 @@ using Microsoft.Bot.Builder.Luis.Models;
 namespace Bot.Gamer.Dialogs
 {
     [Serializable]
-    public class RootDialog : LuisDialog<object>
+    public class RootDialog : InstrumentedLuisDialog<object>//LuisDialog<object>
     {
-        public RootDialog(LuisService service) : base(service) { }
+        //public RootDialog(LuisService service) : base(service) { }
+        public RootDialog(string luisModelId, string luisSubscriptionKey) : base(luisModelId, luisSubscriptionKey){ }
 
         public async Task StartAsync(IDialogContext context)
         {

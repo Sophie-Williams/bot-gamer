@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Bot.Gamer.Controllers;
 using Bot.Gamer.Dialogs;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
@@ -24,17 +25,19 @@ namespace Bot.Gamer
         {
             var connector = new ConnectorClient(new Uri(activity.ServiceUrl));
 
-            var attributes = new LuisModelAttribute(
-                ConfigurationManager.AppSettings["LuisId"],
-                ConfigurationManager.AppSettings["LuisSubscriptionKey"]);
-
-            var service = new LuisService(attributes);
+            //var attributes = new LuisModelAttribute(
+            //    ConfigurationManager.AppSettings["LuisId"],
+            //    ConfigurationManager.AppSettings["LuisSubscriptionKey"]);
+            //var service = new LuisService(attributes);
 
             switch (activity.Type)
             {
                 case ActivityTypes.Message:
-                    await Conversation.SendAsync(activity, () => new RootDialog(service));
-                    //await Conversation.SendAsync(activity, () => new GameDialog());
+                    await InstrumentationHelper.DefaultInstrumentation.TrackActivity(activity);
+                    await Conversation.SendAsync(activity, () => new RootDialog(
+                        ConfigurationManager.AppSettings["LuisId"], 
+                        ConfigurationManager.AppSettings["LuisSubscriptionKey"]));
+                    //await Conversation.SendAsync(activity, () => new RootDialog(service));
                     break;
                 case ActivityTypes.ConversationUpdate:
                     if (activity.MembersAdded.Any(o => o.Id == activity.Recipient.Id))
