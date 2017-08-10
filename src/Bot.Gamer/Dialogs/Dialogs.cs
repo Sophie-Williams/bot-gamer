@@ -27,11 +27,13 @@ namespace Bot.Gamer.Dialogs
             "* Jogar RPG. (Mas eu sou o **mestre** ok?);\n\n" +
             "* Jogar TicTacToe, ou o jogo da velha;\n\n" +
             "* Contar piadas.\n\n" +
+            "* Falar sobre qualquer tecnologia.\n\n" +
             "Lembre-se, sou um **BOT** e meu diálgo é limitado.",
             "Eu, o grande **GamerBot** estou generoso hoje. Já que você é apenas um humano, vou te ajudar a conversar comigo. Até agora o que eu aprendi a fazer é:\n\n" +
             "* Jogar RPG. (Mas eu sou o **mestre** ok?);\n\n" +
             "* Jogar TicTacToe, ou o jogo da velha;\n\n" +
             "* Contar piadas.\n\n" +
+            "* Falar sobre qualquer tecnologia.\n\n" +
             "Não se esqueça que sou um **BOT** e meu diálgo é limitado."
         };
 

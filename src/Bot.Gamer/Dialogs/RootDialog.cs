@@ -129,8 +129,16 @@ namespace Bot.Gamer.Dialogs
             await context.PostAsync(response);
             context.Done<string>(null);
         }
-        #endregion
         
+        [LuisIntent("falar-sobre-tecnologias")]
+        public async Task FalarSobreTecnologias(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("É sério que você não sabe disso?\n\n" +
+                                    "Isso é básico... Você fez faculdade? Fez ensino Médio pelo menos?");
+            context.Done<string>(null);
+        }
+        #endregion
+
         private async Task ResumeAfterJogarRPG(IDialogContext context, IAwaitable<object> result)
         {
             await context.PostAsync("Ok humano... o que você quer fazer agora?");
