@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Bot.Gamer.Games;
 
 namespace Bot.Gamer.Dialogs
@@ -234,7 +232,45 @@ namespace Bot.Gamer.Dialogs
             "**Por que o papagaio foi no ortopedista?** Porque estava com bico-de-papagaio",
             "**Por que o cachorro entrou na igreja?** Porque era um cão pastor",
             "**Por que o japonês não sente frio quando dorme?** Porque ele dorme com a japona",
-            "**Por que o míope não pode ir ao zoológico?** Porque ele usa lentes divergentes e não de verbichos"
+            "**Por que o míope não pode ir ao zoológico?** Porque ele usa lentes divergentes e não de verbichos",
+            "**O que uma nuvem falou para a outra?** Nuvem que num tem !",
+            "**O que o cadarço falou para o tênis?** Eu me amarro em você",
+            "**O que uma parede falou para outra?** Vamos nos encontrar ali no canto",
+            "**O que a caixinha falou para o fósforo?** Não esquente a cabeça não, cara !",
+            "**O que um descuidado falou para o outro?** 'Azeitona tem pernas?'. 'Não'. 'Então comi um besouro !'",
+            "**O que o caminhoneiro descuidado falou para o carona?** 'Tem pinguim nesta região ?'. 'Não'. 'Então atropelei uma freira !'",
+            "**O que um escorregador falou para outro?** Como os ânus passam depressa",
+            "**O que o sapo falou para o Bob Marley?** Reggae, Reggae, Reggae",
+            "**O que o rato americano falou para o rato brasileiro?** Camon, dongo !",
+            "**O que um caipira falou para o outro que estava vendo televisão?** 'Ô, cumpadre ! Firme ?'. 'Não, é futebor !'",
+            "**O que o Viagra falou para o Zagallo?** Você vai ter que me engolir !",
+            "**O que o ET falou para a mulher dele?** Vamo ET ?",
+            "**O que o Papai Noel falou quando perguntaram se ele roia unha?** Rou, rou, rou...",
+            "**O que o instrutor da escola de kamikazes falou para os alunos?** Prestem bem atenção porque eu só vou mostrar uma vez !",
+            "**O que a minhoca falou pro minhoco?** Você minhoquece!",
+            "**Como se faz para ganhar um Chokito?** É só colocar o dedito na tomadita",
+            "**O que é o que é : Cai em pé e corre deitado?** Não, não é a chuva ! É uma minhoca de para-quedas",
+            "**O que o tomate foi fazer no banco?** Foi tirar extrato",
+            "**Qual a diferença entre o avião, o doido e o Senna?** O Avião é TAM, o doido é TAMTAM e o Senna é TAM TAM TAM",
+            "**Um peixe foi jogado de cima de um prédio de 20 andares. Que peixe era esse?** Era um atum, porque quando ele caiu fez Aaaaaaaaaaaaaaaa Tum !",
+            "**Dois mercados estavam voando, e um deles falou: 'Peraí, mercado não voa !'. Um caiu no chão mas o outro continuou voando. Por quê?** Era um Super-mercado",
+            "**Dois caminhões estavam voando, e um deles falou: 'Peraí, caminhão não voa !'. Um caiu no chão mas o outro continuou voando. Por quê?** Era um caminhão-pipa",
+            "**Dois frangos estavam voando, e um deles falou: 'Peraí, frango não voa !'. Um caiu no chão mas o outro continuou voando. Por quê?** Era um frango à passarinho",
+            "**Dois sapos estavam voando, e um deles falou: 'Peraí, sapo não voa !'. Um caiu no chão mas o outro continuou voando. Por quê?** Porque não ouviu o outro sapo falar, era surdo",
+            "**O que é o que é : É comprido, entra duro e sai mole e pingando?** É o macarrão",
+            "**Como se faz omelete de chocolate?** Com ovos de páscoa",
+            "**O que o advogado do frango foi fazer na delegacia?** Foi soltar a franga",
+            "**Para que serve óculos verde?** Para verde perto",
+            "**Para que serve óculos vermelho?** Para vermelhor",
+            "**Para que serve óculos marrom?** Para ver marrom menos",
+            "**Como a bruxa sai na chuva?** De rodo",
+            "**Qual é a semelhança entre o entregador de pizza e o ginecologista?** Eles sentem o cheiro, mas não podem comer",
+            "**Qual é a diferença entre o gato e coca-cola?** O gato mia e a coca light",
+            "**Qual é bebida que se bebe devagar, devagar, devagarinho?** Martini da Vila",
+            "**Quem é o pai do volante?** O painel",
+            "**Qual é a bebida preferida do Papai Noel?** É o Gin-Gobel",
+            "**Qual é a diferença entre a mulher e o leão?** A mulher usa batom e o leão ruge ",
+            "**Qual é a comida que liga e desliga?** É o StrogON-OFF",
         };
 
         public static string RandomChoose(DialogsTypes types)
