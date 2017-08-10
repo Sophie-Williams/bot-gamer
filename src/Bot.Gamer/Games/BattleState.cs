@@ -28,7 +28,7 @@ namespace Bot.Gamer.Games
         {
             var response = new RPGResponse();
 
-            response.Response = response.Response + "\n\nVocê tenta matar o monstro .. ";
+            response.Response = response.Response + "\n\nVocê tenta matar o monstro ...";
             _rounds++;
 
             var maxRan = 10 - level;
@@ -39,7 +39,7 @@ namespace Bot.Gamer.Games
             var ran = RandomGenerator.GetRandomNumber(maxRan);
             if (ran == 0)
             {
-                response.Response = response.Response + "\n\nele está morto!";
+                response.Response = response.Response + "\n\ne ele está morto!";
                 _context.SetState(_context.GetExploreState());
                 var tempRounds = _rounds;
                 _rounds = 0;
@@ -50,12 +50,12 @@ namespace Bot.Gamer.Games
             {
                 response.Response = response.Response + "\n\n(ಥ﹏ಥ) ... mas ERRÔÔÔU!!!";
             }
-            if (_rounds >= 9)
-            {
-                response.Response = response.Response + "\n\nVocê entra em pânico e fugiu com medo.";
-                _context.SetState(_context.GetExploreState());
-                _rounds = 0;
-            }
+
+            if (_rounds < 9) return response;
+
+            response.Response = response.Response + "\n\nVocê entra em pânico e foge com medo.";
+            _context.SetState(_context.GetExploreState());
+            _rounds = 0;
 
             return response;
         }

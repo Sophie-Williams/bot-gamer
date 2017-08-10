@@ -20,7 +20,7 @@ namespace Bot.Gamer.Games
         {
             var response = new RPGResponse();
 
-            response.Response = response.Response + "\n\nVocê procura algo para matar.";
+            response.Response = response.Response + "\n\nVocê explora a região e procura algum monstro para matar.";
 
             var ran = RandomGenerator.GetRandomNumber(5);
             if (ran == 0)
@@ -30,7 +30,7 @@ namespace Bot.Gamer.Games
             }
             else if (ran == 1)
             {
-                response.Response = response.Response + "\n\nVocê encontra uma jóia dourada atrás de uma árvore!";
+                response.Response = response.Response + "\n\nMas acaba encontrando Você encontra uma jóia dourada atrás de uma árvore!";
                 response.Status = 2;
             }
 
