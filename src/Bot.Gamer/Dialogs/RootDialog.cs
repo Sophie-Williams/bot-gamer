@@ -66,6 +66,13 @@ namespace Bot.Gamer.Dialogs
             context.Done<string>(null);
         }
 
+        [LuisIntent("ofenca")]
+        public async Task Ofenca(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync($"Não precisa me ofender coleguinha... {Emoji.H}");
+            context.Done<string>(null);
+        }
+
         /// <summary>
         /// Quando as perguntas forem em relação ao próprio Botinho
         /// </summary>
@@ -74,7 +81,7 @@ namespace Bot.Gamer.Dialogs
         {
             var response = Dialogs.RandomChoose(Dialogs.DialogsTypes.Consciencia);
             await context.PostAsync(response);
-            context.Done("");
+            context.Done<string>(null);
         }
 
         /// <summary>
