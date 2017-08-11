@@ -4,6 +4,7 @@ using Microsoft.Bot.Connector;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Bot.Gamer.Games.Rpg;
 
 namespace Bot.Gamer.Dialogs
 {

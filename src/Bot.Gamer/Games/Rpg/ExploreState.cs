@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace Bot.Gamer.Games
+namespace Bot.Gamer.Games.Rpg
 {
     [Serializable]
     public class ExploreState : IState

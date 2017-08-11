@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Bot.Gamer.Games;
+using Bot.Gamer.Games.Rpg;
 
 namespace Bot.Gamer.Dialogs
 {
