@@ -11,6 +11,7 @@ namespace Bot.Gamer.Dialogs
         {
             Consciencia,
             Piada,
+            Ofenca,
             Ajuda
         }
 
@@ -36,6 +37,14 @@ namespace Bot.Gamer.Dialogs
             "* Contar piadas.\n\n" +
             "* Falar sobre qualquer tecnologia.\n\n" +
             "Não se esqueça que sou um **BOT** e meu diálgo é limitado."
+        };
+
+        private static readonly List<string> OfencaDialogs = new List<string>()
+        {
+            $"Não precisa me ofender coleguinha... {Emoji.H}",
+            "Eu sei que sou um **Bot**, mas eu também tenho sentimentos...",
+            "Nôôssaaa, que grosso...",
+            "Desnecessário... que deselegante..."
         };
 
         private static readonly List<string> PiadaDialogs = new List<string>()
@@ -289,6 +298,9 @@ namespace Bot.Gamer.Dialogs
                 case DialogsTypes.Piada:
                     ran = RandomGenerator.GetRandomNumber(PiadaDialogs.Count);
                     return PiadaDialogs[ran];
+                case DialogsTypes.Ofenca:
+                    ran = RandomGenerator.GetRandomNumber(OfencaDialogs.Count);
+                    return OfencaDialogs[ran];
                 default:
                     throw new ArgumentOutOfRangeException(nameof(types), types, null);
             }
