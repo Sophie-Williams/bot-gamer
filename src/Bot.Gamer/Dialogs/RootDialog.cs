@@ -69,7 +69,8 @@ namespace Bot.Gamer.Dialogs
         [LuisIntent("ofenca")]
         public async Task Ofenca(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"Não precisa me ofender coleguinha... {Emoji.H}");
+            var response = Dialogs.RandomChoose(Dialogs.DialogsTypes.Ofenca);
+            await context.PostAsync(response);
             context.Done<string>(null);
         }
 
