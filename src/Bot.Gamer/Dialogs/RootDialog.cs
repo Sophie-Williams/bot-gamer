@@ -109,7 +109,8 @@ namespace Bot.Gamer.Dialogs
         [LuisIntent("jogar-tic-tac-toe")]
         public async Task JogarTicTacToe(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync("( ͡° ͜ʖ ͡°) Ops ... ainda não aprendi a jogar o **jogo da velha**.\n\nFaz o seguinte, volta depois ou joga um **RPG** comigo.");
+            //await context.PostAsync("( ͡° ͜ʖ ͡°) Ops ... ainda não aprendi a jogar o **jogo da velha**.\n\nFaz o seguinte, volta depois ou joga um **RPG** comigo.");
+            await context.Forward(new TicTacToeDialog(), this.ResumeAfterJogarRPG, null, CancellationToken.None);
         }
 
         /// <summary>

@@ -18,6 +18,7 @@ namespace Bot.Gamer.Dialogs
 
         public async Task StartAsync(IDialogContext context)
         {
+            InitGame();
             await context.PostAsync("-=-=- Tic Tac Toe v1.0 -=-=-");
             context.Wait(StartTicTacToeAsync);
         }
