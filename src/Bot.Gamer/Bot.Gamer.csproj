@@ -135,6 +135,12 @@
     <Compile Include="Games\RandomGenerator.cs" />
     <Compile Include="Games\RPGController.cs" />
     <Compile Include="Games\RPGResponse.cs" />
+    <Compile Include="Games\TicTacToe\IPlayer.cs" />
+    <Compile Include="Games\TicTacToe\PlayerAiExtreme.cs" />
+    <Compile Include="Games\TicTacToe\PlayerAiRandom.cs" />
+    <Compile Include="Games\TicTacToe\PlayerHuman.cs" />
+    <Compile Include="Games\TicTacToe\TicTacToe.cs" />
+    <Compile Include="Games\TicTacToe\TreeNode.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
