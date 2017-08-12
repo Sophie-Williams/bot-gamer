@@ -2,46 +2,51 @@
 
 namespace Bot.Gamer.Games.Rpg
 {
+    /// <summary>
+    /// Aqui temos uma referência a uma variável de "contexto", que aponta para o controlador 
+    /// de estado. O controlador gerencia o estado atual e mapeia o estado. O diálogo do RPG
+    /// vai chamar o controlador, não os estados individuais.
+    /// </summary>
     [Serializable]
-    public class RPGController
+    public class RpgController
     {
-        private IState exploreState;
-        private IState battleState;
-        private IState state;
-        private int level = 1;
-        public RPGController()
+        private readonly IState _exploreState;
+        private readonly IState _battleState;
+        private IState _state;
+        private int _level = 1;
+        public RpgController()
         {
-            exploreState = new ExploreState(this);
-            battleState = new BattleState(this);
-            state = exploreState;
+            _exploreState = new ExploreState(this);
+            _battleState = new BattleState(this);
+            _state = _exploreState;
         }
         public RPGResponse Explore()
         {
-            return state.Explore();
+            return _state.Explore();
         }
         public RPGResponse Battle()
         {
-            return state.Battle(level);
+            return _state.Battle(_level);
         }
         public void SetState(IState state)
         {
-            this.state = state;
+            this._state = state;
         }
         public void SetLevel(int level)
         {
-            this.level = level;
+            this._level = level;
         }
         public int GetLevel()
         {
-            return level;
+            return _level;
         }
         public IState GetExploreState()
         {
-            return exploreState;
+            return _exploreState;
         }
         public IState GetBattleState()
         {
-            return battleState;
+            return _battleState;
         }
     }
 }

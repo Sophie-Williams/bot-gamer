@@ -127,7 +127,7 @@ namespace Bot.Gamer.Dialogs
         [LuisIntent("jogar-rpg")]
         public async Task JogarRPG(IDialogContext context, LuisResult result)
         {
-            await context.Forward(new RPGDialog(), this.ResumeAfterJogarRPG, null, CancellationToken.None);
+            await context.Forward(new RpgDialog(), this.ResumeAfterJogarRPG, null, CancellationToken.None);
         }
 
         /// <summary>

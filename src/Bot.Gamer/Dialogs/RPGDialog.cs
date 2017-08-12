@@ -9,10 +9,10 @@ using Bot.Gamer.Games.Rpg;
 namespace Bot.Gamer.Dialogs
 {
     [Serializable]
-    public class RPGDialog : IDialog<object>
+    public class RpgDialog : IDialog<object>
     {
-        private readonly RPGController _rpg = new RPGController();
-        private int _score = 0;
+        private readonly RpgController _rpg = new RpgController();
+        private int _score;
         private int _nextLevel = 10;
 
         public async Task StartAsync(IDialogContext context)
@@ -28,7 +28,7 @@ namespace Bot.Gamer.Dialogs
                                     "* **O** - Para olhar ao redor\n\n" +
                                     "* **A** - Para atarcar, caso você veja um monstro\n\n" +
                                     "* **H** - Caso precise de ajuda, ou queira lembrar os comandos\n\n" +
-                                    "* **S** - Para pedir sair ou pedir arrego\n\n");
+                                    "* **S** - Para sair ou pedir arrego\n\n");
 
             PromptDialog.Text(context, CallBack, "Hora de iniciar..." +
                                                  "\n\n\nPontuação [**" + _score + "**] Nível [**" + _rpg.GetLevel() + "**]\n\n\n" +
@@ -107,7 +107,7 @@ namespace Bot.Gamer.Dialogs
             }
 
             if (!Commands.S(command))
-                PromptDialog.Text(context, CallBack, $"{Emoji.EmptyField} Pontuação [**{_score}**] Nível [**{_rpg.GetLevel()}**] Action [O,A,S]: ");
+                PromptDialog.Text(context, CallBack, $"{Emoji.BlueField} Pontuação [**{_score}**] Nível [**{_rpg.GetLevel()}**] Action [O,A,S]: ");
 
         }
         
@@ -135,7 +135,7 @@ namespace Bot.Gamer.Dialogs
             var heroCard = new HeroCard
             {
                 Title = "LOSER",
-                Subtitle = $"{Emoji.A} Loser {Emoji.B} Loser",
+                Subtitle = Emoji.B,
                 Text = Emoji.RedField + " Seu status no jogo foi: Pontuação [**" + _score + "**] Nível [**" + _rpg.GetLevel() + "**]",
                 Images = new List<CardImage> { new CardImage("http://meriatblob.blob.core.windows.net/demos/robot.png") },
                 Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Vitor Meriat", value: "http://vitormeriat.com.br") }

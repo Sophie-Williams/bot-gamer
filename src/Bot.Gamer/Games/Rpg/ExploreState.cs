@@ -5,9 +5,9 @@ namespace Bot.Gamer.Games.Rpg
     [Serializable]
     public class ExploreState : IState
     {
-        private readonly RPGController _context;
+        private readonly RpgController _context;
 
-        public ExploreState(RPGController context)
+        public ExploreState(RpgController context)
         {
             this._context = context;
         }

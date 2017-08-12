@@ -5,9 +5,9 @@ namespace Bot.Gamer.Games.Rpg
     [Serializable]
     public class BattleState : IState
     {
-        private readonly RPGController _context;
+        private readonly RpgController _context;
         private int _rounds = 0;
-        public BattleState(RPGController context)
+        public BattleState(RpgController context)
         {
             this._context = context;
         }

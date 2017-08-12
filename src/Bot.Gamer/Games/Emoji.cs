@@ -12,6 +12,7 @@ namespace Bot.Gamer.Games
         public static readonly string EmptyField = "⚪️";
         public static readonly string RedField = "🔴";
         public static readonly string BlueField = "🔵";
+        public static readonly string XField = "✖";
         public static readonly string Snake = "🐍";
         public static readonly string TurnDownForWhat = "(▀̿Ĺ̯▀̿ ̿)";
         public static readonly string Happy = "•ᴗ•";
