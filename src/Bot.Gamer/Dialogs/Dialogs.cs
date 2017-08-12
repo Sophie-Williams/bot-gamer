@@ -15,6 +15,7 @@ namespace Bot.Gamer.Dialogs
             Ajuda
         }
 
+        #region ... Dialogs ...
         private static readonly List<string> ConscienciaDialogs = new List<string>()
         {
             "Não se esqueça, eu sou um **BOT**, mas você pode me chamar de **GamerBot**.\n\nNão entendo tudo mas posso te ajudar a jogar.\n\nEm que posso te ajudar?",
@@ -284,7 +285,8 @@ namespace Bot.Gamer.Dialogs
             "**Qual é a bebida preferida do Papai Noel?** É o Gin-Gobel",
             "**Qual é a diferença entre a mulher e o leão?** A mulher usa batom e o leão ruge ",
             "**Qual é a comida que liga e desliga?** É o StrogON-OFF",
-        };
+        }; 
+        #endregion
 
         public static string RandomChoose(DialogsTypes types)
         {

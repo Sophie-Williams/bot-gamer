@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BotBuilder.Instrumentation.Dialogs;
+using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.Luis.Models;
+using Microsoft.Bot.Connector;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Bot.Gamer.Games;
-using BotBuilder.Instrumentation.Dialogs;
-using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.Luis;
-using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Luis.Models;
 
 namespace Bot.Gamer.Dialogs
 {
@@ -15,22 +12,7 @@ namespace Bot.Gamer.Dialogs
     public class RootDialog : InstrumentedLuisDialog<object>//LuisDialog<object>
     {
         //public RootDialog(LuisService service) : base(service) { }
-        public RootDialog(string luisModelId, string luisSubscriptionKey) : base(luisModelId, luisSubscriptionKey){ }
-
-        public async Task StartAsync(IDialogContext context)
-        {
-            context.Wait(MessageReceivedAsync);
-        }
-
-        private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<object> result)
-        {
-            var activity = await result as Activity;
-        }
-
-        private Task CallBack(IDialogContext context, IAwaitable<string> result)
-        {
-            throw new NotImplementedException();
-        }
+        public RootDialog(string luisModelId, string luisSubscriptionKey) : base(luisModelId, luisSubscriptionKey) { }
 
         #region ... Intents ...
 
@@ -118,16 +100,16 @@ namespace Bot.Gamer.Dialogs
         public async Task JogarTicTacToe(IDialogContext context, LuisResult result)
         {
             //await context.PostAsync("( ͡° ͜ʖ ͡°) Ops ... ainda não aprendi a jogar o **jogo da velha**.\n\nFaz o seguinte, volta depois ou joga um **RPG** comigo.");
-            await context.Forward(new TicTacToeDialog(), this.ResumeAfterJogarRPG, null, CancellationToken.None);
+            await context.Forward(new TicTacToeDialog(), this.ResumeAfterPlayGame, null, CancellationToken.None);
         }
 
         /// <summary>
         /// Quando o usuário quiser jogar RPG
         /// </summary>
         [LuisIntent("jogar-rpg")]
-        public async Task JogarRPG(IDialogContext context, LuisResult result)
+        public async Task JogarRpg(IDialogContext context, LuisResult result)
         {
-            await context.Forward(new RpgDialog(), this.ResumeAfterJogarRPG, null, CancellationToken.None);
+            await context.Forward(new RpgDialog(), this.ResumeAfterPlayGame, null, CancellationToken.None);
         }
 
         /// <summary>
@@ -140,7 +122,7 @@ namespace Bot.Gamer.Dialogs
             await context.PostAsync(response);
             context.Done<string>(null);
         }
-        
+
         [LuisIntent("falar-sobre-tecnologias")]
         public async Task FalarSobreTecnologias(IDialogContext context, LuisResult result)
         {
@@ -150,7 +132,7 @@ namespace Bot.Gamer.Dialogs
         }
         #endregion
 
-        private async Task ResumeAfterJogarRPG(IDialogContext context, IAwaitable<object> result)
+        private async Task ResumeAfterPlayGame(IDialogContext context, IAwaitable<object> result)
         {
             await context.PostAsync("Ok humano... o que você quer fazer agora?");
 

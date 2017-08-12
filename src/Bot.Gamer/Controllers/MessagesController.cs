@@ -5,14 +5,11 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Bot.Gamer.Controllers;
 using Bot.Gamer.Dialogs;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
-using Bot.Gamer.Games;
-using Microsoft.Bot.Builder.Luis;
 
-namespace Bot.Gamer
+namespace Bot.Gamer.Controllers
 {
     [BotAuthentication]
     public class MessagesController : ApiController

@@ -7,12 +7,7 @@ namespace Bot.Gamer.Controllers
 {
     public class InstrumentationHelper
     {
-        public static BotBuilder.Instrumentation.Interfaces.IBotFrameworkInstrumentation DefaultInstrumentation
-        {
-            get
-            {
-                return BotBuilder.Instrumentation.DependencyResolver.Current.DefaultInstrumentationWithCognitiveServices;
-            }
-        }
+        public static BotBuilder.Instrumentation.Interfaces.IBotFrameworkInstrumentation DefaultInstrumentation =>
+            BotBuilder.Instrumentation.DependencyResolver.Current.DefaultInstrumentationWithCognitiveServices;
     }
 }
