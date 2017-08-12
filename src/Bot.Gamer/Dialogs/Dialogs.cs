@@ -44,7 +44,8 @@ namespace Bot.Gamer.Dialogs
             $"Não precisa me ofender coleguinha... {Emoji.H}",
             "Eu sei que sou um **Bot**, mas eu também tenho sentimentos...",
             "Nôôssaaa, que grosso...",
-            "Desnecessário... que deselegante..."
+            "Desnecessário... que deselegante...",
+            "O que foi que eu te fiz? Não precisa ofender..."
         };
 
         private static readonly List<string> PiadaDialogs = new List<string>()
