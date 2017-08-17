@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Bot.Gamer.Dialogs;
+using BotBuilder.Instrumentation;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 
@@ -31,9 +32,10 @@ namespace Bot.Gamer.Controllers
             {
                 case ActivityTypes.Message:
                     await InstrumentationHelper.DefaultInstrumentation.TrackActivity(activity);
+
                     await Conversation.SendAsync(activity, () => new RootDialog(
-                        ConfigurationManager.AppSettings["LuisId"], 
-                        ConfigurationManager.AppSettings["LuisSubscriptionKey"]));
+                                    ConfigurationManager.AppSettings["LuisId"],
+                                    ConfigurationManager.AppSettings["LuisSubscriptionKey"]));
                     //await Conversation.SendAsync(activity, () => new RootDialog(service));
                     break;
                 case ActivityTypes.ConversationUpdate:
