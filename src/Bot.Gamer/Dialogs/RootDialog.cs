@@ -1,4 +1,5 @@
 ﻿using BotBuilder.Instrumentation.Dialogs;
+using Microsoft.Azure.Documents.Client;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Connector;
@@ -13,6 +14,7 @@ namespace Bot.Gamer.Dialogs
     {
         //public RootDialog(LuisService service) : base(service) { }
         public RootDialog(string luisModelId, string luisSubscriptionKey) : base(luisModelId, luisSubscriptionKey) { }
+
 
         #region ... Intents ...
 
@@ -138,5 +140,32 @@ namespace Bot.Gamer.Dialogs
 
             context.Done<string>(null);
         }
+
+        private async Task EfetuarInscricao(IDialogContext context)
+        {
+            var s = context.Activity.Id;
+
+            var repository = new DocumentDbRepository();
+
+            var um = repository.GetItemByEmailAsync(s);
+            if (um != null)
+            {
+                var inscricao = new Inscricao() { Email = s, Id = Guid.NewGuid().ToString() };
+
+                var oi = await repository.CreateItemAsync(inscricao);
+
+                if (oi != null)
+                {
+                    await context.PostAsync(oi.Id);
+                }
+            }
+            else
+            {
+                await context.PostAsync("Deu ruim mano...já exite uma inscrição.");
+            }
+
+        }
+
+
     }
 }
