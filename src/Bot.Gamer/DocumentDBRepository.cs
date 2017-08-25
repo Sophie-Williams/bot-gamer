@@ -42,6 +42,25 @@ namespace Bot.Gamer
                     throw;
                 }
             }
+
+
+            //if (cs.Length > 2)
+            //{
+
+            //}
+
+            //if (employeeResponse.Email.Split('@')[1] == "esx.com.br")
+            //{
+
+            //}
+
+            //var docs = _client.ReadDocumentFeedAsync(collectionLink, new FeedOptions { MaxItemCount = 50 }).Result.ToList();
+
+            //foreach (var item in docs)
+            //{
+            //    var d = (Inscricao)(dynamic)item;
+            //    Console.WriteLine(d.Email);
+            //}
         }
 
         public Inscricao GetItemByEmailAsync(string email)
@@ -75,6 +94,7 @@ namespace Bot.Gamer
         }
     }
 
+    [Serializable]
     public class Inscricao
     {
         [Key]

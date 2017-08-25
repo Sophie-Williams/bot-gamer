@@ -6,12 +6,16 @@ using Microsoft.Bot.Connector;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Bot.Gamer.FormFlow;
+using Microsoft.Bot.Builder.FormFlow;
 
 namespace Bot.Gamer.Dialogs
 {
     [Serializable]
     public class RootDialog : InstrumentedLuisDialog<object>//LuisDialog<object>
     {
+        public InscricaoForm FormInscricao { get; set; }
+
         //public RootDialog(LuisService service) : base(service) { }
         public RootDialog(string luisModelId, string luisSubscriptionKey) : base(luisModelId, luisSubscriptionKey) { }
 
@@ -132,6 +136,14 @@ namespace Bot.Gamer.Dialogs
                                     "Isso é básico... Você fez faculdade? Fez ensino Médio pelo menos?");
             context.Done<string>(null);
         }
+
+        [LuisIntent("realizar-inscricao")]
+        public async Task RealizarInscricao(IDialogContext context, LuisResult result)
+        {
+            FormInscricao = new InscricaoForm();
+            var dialog = new FormDialog<InscricaoForm>(FormInscricao, InscricaoForm.BuildForm, FormOptions.PromptInStart);
+            context.Call(dialog, EfetuarInscricao);
+        }
         #endregion
 
         private async Task ResumeAfterPlayGame(IDialogContext context, IAwaitable<object> result)
@@ -140,17 +152,17 @@ namespace Bot.Gamer.Dialogs
 
             context.Done<string>(null);
         }
-
-        private async Task EfetuarInscricao(IDialogContext context)
+        
+        private async Task EfetuarInscricao(IDialogContext context, IAwaitable<object> value)
         {
-            var s = context.Activity.Id;
+            var message = await value;
 
             var repository = new DocumentDbRepository();
 
-            var um = repository.GetItemByEmailAsync(s);
-            if (um != null)
+            var um = repository.GetItemByEmailAsync(message.ToString());
+            if (um == null)
             {
-                var inscricao = new Inscricao() { Email = s, Id = Guid.NewGuid().ToString() };
+                var inscricao = new Inscricao() { Email = message.ToString(), Id = Guid.NewGuid().ToString() };
 
                 var oi = await repository.CreateItemAsync(inscricao);
 
@@ -163,9 +175,6 @@ namespace Bot.Gamer.Dialogs
             {
                 await context.PostAsync("Deu ruim mano...já exite uma inscrição.");
             }
-
         }
-
-
     }
 }
