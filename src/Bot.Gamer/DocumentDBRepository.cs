@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Microsoft.Azure.Documents;
+using Microsoft.Azure.Documents.Client;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Azure.Documents;
-using Microsoft.Azure.Documents.Client;
-using Newtonsoft.Json;
 
 namespace Bot.Gamer
 {

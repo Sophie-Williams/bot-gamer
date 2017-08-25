@@ -1,14 +1,12 @@
-﻿using BotBuilder.Instrumentation.Dialogs;
-using Microsoft.Azure.Documents.Client;
+﻿using Bot.Gamer.FormFlow;
+using BotBuilder.Instrumentation.Dialogs;
 using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Builder.Luis.Models;
-using Microsoft.Bot.Connector;
 using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Bot.Gamer.FormFlow;
-using Microsoft.Bot.Builder.FormFlow;
 
 namespace Bot.Gamer.Dialogs
 {
