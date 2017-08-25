@@ -70,15 +70,8 @@ namespace Bot.Gamer
             {
                 var document = _client.ReadDocumentFeedAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId),
                     new FeedOptions { MaxItemCount = 50 }).Result.ToList();
-                //Document document = await _client.ReadDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
-                var inscricoes = new List<Inscricao>();
-                foreach (var item in document)
-                {
-                    var d = (Inscricao)(dynamic)item;
-                    inscricoes.Add(new Inscricao(){ Email = d.Email });
-                }
 
-                return inscricoes;
+                return document.Select(item => (Inscricao)(dynamic)item).Select(i => new Inscricao() { Email = i.Email }).ToList();
             }
             catch (DocumentClientException e)
             {
@@ -91,25 +84,6 @@ namespace Bot.Gamer
                     throw;
                 }
             }
-
-
-            //if (cs.Length > 2)
-            //{
-
-            //}
-
-            //if (employeeResponse.Email.Split('@')[1] == "esx.com.br")
-            //{
-
-            //}
-
-            //var docs = _client.ReadDocumentFeedAsync(collectionLink, new FeedOptions { MaxItemCount = 50 }).Result.ToList();
-
-            //foreach (var item in docs)
-            //{
-            //    var d = (Inscricao)(dynamic)item;
-            //    Console.WriteLine(d.Email);
-            //}
         }
 
         public Inscricao GetItemByEmailAsync(string email)

@@ -145,6 +145,18 @@ namespace Bot.Gamer.Dialogs
             var dialog = new FormDialog<InscricaoForm>(FormInscricao, InscricaoForm.BuildForm, FormOptions.PromptInStart);
             context.Call(dialog, EfetuarInscricao);
         }
+
+        [LuisIntent("confirmar-inscricao")]
+        public async Task ConfirmarInscricao(IDialogContext context, LuisResult result)
+        {
+            var repository = new DocumentDbRepository();
+
+            var results = repository.ListItemAsync();
+            var response = string.Empty;
+            var count = 1;
+            response = results.Aggregate(response, (current, item) => current + $"* **{count++}** - {item.Email}\n\n");
+            await context.PostAsync("Ok, segue a lista de quem já se inscreveu:\n\n" + response+ "\n\nSe você teve algum problema pode procurar o **Meriat** ou ir direto no grupo do **hackathon** no slack.");
+        }
         #endregion
 
         private async Task ResumeAfterPlayGame(IDialogContext context, IAwaitable<object> result)
