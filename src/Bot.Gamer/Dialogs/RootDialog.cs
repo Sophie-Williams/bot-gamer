@@ -4,6 +4,7 @@ using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Connector;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Bot.Gamer.FormFlow;
@@ -152,28 +153,30 @@ namespace Bot.Gamer.Dialogs
 
             context.Done<string>(null);
         }
-        
+
         private async Task EfetuarInscricao(IDialogContext context, IAwaitable<object> value)
         {
-            var message = await value;
-
             var repository = new DocumentDbRepository();
 
-            var um = repository.GetItemByEmailAsync(message.ToString());
+            var um = repository.GetItemByEmailAsync(FormInscricao.Email);
             if (um == null)
             {
-                var inscricao = new Inscricao() { Email = message.ToString(), Id = Guid.NewGuid().ToString() };
+                var inscricao = new Inscricao() { Email = FormInscricao.Email, Id = Guid.NewGuid().ToString() };
 
                 var oi = await repository.CreateItemAsync(inscricao);
 
                 if (oi != null)
                 {
-                    await context.PostAsync(oi.Id);
+                    var result = repository.ListItemAsync();
+                    var response = string.Empty;
+                    var count = 1;
+                    response = result.Aggregate(response, (current, item) => current + $"* **{count++}** - {item.Email}\n\n");
+                    await context.PostAsync("Parabéns pela inscrição, olha ai quem também já se inscreveu:\n\n" + response);
                 }
             }
             else
             {
-                await context.PostAsync("Deu ruim mano...já exite uma inscrição.");
+                await context.PostAsync("Deu ruim mano...já existe uma inscrição.");
             }
         }
     }

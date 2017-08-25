@@ -18,7 +18,7 @@ namespace Bot.Gamer.FormFlow
         public static IForm<InscricaoForm> BuildForm()
         {
             return new FormBuilder<InscricaoForm>()
-                .Message("Ok, preciso que você me informe seu email da **ESX**.")
+                .Message("Ok, preciso que você me informe seu email da **ESX**.\n\nInforme apenas o seu e-mail. Não tente bugar se coleguinha beleza?")
                 .Field(nameof(Email), validate: ValidateEmail)
                 .AddRemainingFields()
                 //.Confirm("**Email:** {Email}")
@@ -32,7 +32,7 @@ namespace Bot.Gamer.FormFlow
             var email = (string)response;
             if (!string.IsNullOrWhiteSpace(email))
             {
-                if (email.Split('@').Length > 2 || email.Split('@')[1] != "esx.com.br")
+                if (!email.Contains('@') || email.Split('@').Length > 2 || email.Split('@')[1] != "esx.com.br")
                 {
                     result.Feedback = "❌ - Informe um e-mail **@esx.com.br** mano!";
                     return result;
