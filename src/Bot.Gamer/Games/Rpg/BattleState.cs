@@ -33,6 +33,7 @@ namespace Bot.Gamer.Games.Rpg
             {
                 maxRan = 1;
             }
+
             var ran = RandomGenerator.GetRandomNumber(maxRan);
             if (ran == 0)
             {
